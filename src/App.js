@@ -1,10 +1,16 @@
 import './App.css';
-import SignUp from './components/SignUp';
+import React from "react";
+import {Route} from "react-router-dom"
+import SignUp from "./components/SignUp";
+import Home from "./components/Home"
+import Login from './components/Login';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <SignUp />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/signup" component={SignUp} />
+      <Route exact path="/login" component={Login} />
     </div>
   );
 }
