@@ -1,4 +1,6 @@
 import React from "react"
+import { connect } from 'react-redux'
+import {createUser} from "../actions/userActions"
 
 class SignUp extends React.Component{
     state={
@@ -18,19 +20,7 @@ class SignUp extends React.Component{
         e.preventDefault();
         // need to submit the user data to backend 
         //console.log("submit: ", this.state)
-        fetch("http://localhost:3001/users",{
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(this.state)
-        }).then(resp =>resp.json())
-        .then(data =>{
-            console.log(JSON.stringify(data,null,2))
-           const {username, email, jwt} = data
-           localStorage.setItem("token",jwt)
-           
-        }).catch(console.log)
+        this.props.createUser(this.state)
     }
 
     render(){
@@ -47,4 +37,4 @@ class SignUp extends React.Component{
         )
     }
 }
-export default SignUp
+export default connect(null, {createUser})(SignUp)
