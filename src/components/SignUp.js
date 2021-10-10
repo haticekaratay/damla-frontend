@@ -20,8 +20,8 @@ class SignUp extends React.Component{
         e.preventDefault();
         // need to submit the user data to backend 
         //console.log("submit: ", this.state)
-        console.log(this.props)
-        this.props.createUser(this.state)
+        console.log(this.props) //props has the history so pass it to create user to redirect
+        this.props.createUser(this.state, this.props.history)
     }
 
     render(){
