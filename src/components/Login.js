@@ -1,4 +1,6 @@
 import React from "react";
+import {connect} from "react-redux";
+import {loginUser} from "../actions/userActions"
 
 class Login extends React.Component{
     state={
@@ -15,6 +17,7 @@ class Login extends React.Component{
         e.preventDefault();
         // need to submit the user data to backend 
         console.log("submit: ", this.state)
+        this.props.loginUser(this.state,this.props.history)
     }
 
     render(){
@@ -32,4 +35,5 @@ class Login extends React.Component{
 
 }
 
-export default Login
+
+export default connect(null,{loginUser})(Login)
