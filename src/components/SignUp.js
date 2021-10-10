@@ -20,6 +20,7 @@ class SignUp extends React.Component{
         e.preventDefault();
         // need to submit the user data to backend 
         //console.log("submit: ", this.state)
+        console.log(this.props)
         this.props.createUser(this.state)
     }
 

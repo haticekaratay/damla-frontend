@@ -3,7 +3,7 @@ const userReducer = (state = {
 }, action) => {
     switch(action.type){
         case "CREATE_USER":
-            return {...state,currentUser: action.user}
+            return {...state, currentUser: action.user}
         default:
             return state
     }

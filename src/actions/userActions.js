@@ -1,3 +1,5 @@
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.css';
 
 export const createUser = (userDataFromLocalState) =>{
     return dispatch => {
@@ -10,6 +12,12 @@ export const createUser = (userDataFromLocalState) =>{
     }).then(resp =>resp.json())
     .then(data =>{
         console.log(JSON.stringify(data,null,2))
+        if(data.error){
+            //alert(data.error)
+            const error = data.error.join("*****")
+            alertify.set('notifier','position', 'top-right');
+            alertify.error(error)
+        }
        const {username,email, jwt} = data
        localStorage.setItem("token",jwt)
        dispatch({ type: 'CREATE_USER', user: {username: username, email:email}})
