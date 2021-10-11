@@ -8,8 +8,9 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import rootReducer from './reducers/rootReducer'
+import { composeWithDevTools } from 'redux-devtools-extension';
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
 ReactDOM.render(
     <Provider store={ store }>
