@@ -7,7 +7,8 @@ import {autoLogin} from "./actions/userActions"
 import SignUp from "./components/SignUp";
 import Home from "./components/Home"
 import Login from "./components/Login";
-import IncomeContainer from "./components/incomes/incomeContainer";
+// import IncomeContainer from "./components/incomes/incomeContainer";
+import BudgetsContainer from ".//components/budgets/budgetsContainer"
 
 class App extends React.Component{
   render(){
@@ -17,7 +18,7 @@ class App extends React.Component{
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/mybudget" component={IncomeContainer} />
+        <Route exact path="/mybudget" component={BudgetsContainer} />
       </div>
     );
   }
