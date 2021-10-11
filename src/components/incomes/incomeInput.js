@@ -1,4 +1,6 @@
 import React from "react";
+import { connect } from "react-redux";
+import {addIncome} from "../../actions/incomeActions";
 
 class IncomeInput extends React.Component {
     state = {
@@ -10,7 +12,7 @@ class IncomeInput extends React.Component {
         e.preventDefault();
         
         console.log(this.state)
-        //post the income to the database.
+        this.props.addIncome({name: this.state.name, amount: parseInt(this.state.amount)})
     }
 
     handleChange = (e) => {
@@ -34,4 +36,4 @@ class IncomeInput extends React.Component {
     }
 }
 
-export default IncomeInput;
+export default connect(null,{addIncome})(IncomeInput);
