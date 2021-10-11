@@ -3,19 +3,23 @@ import {userIncomes} from "../../actions/incomeActions"
 import { connect } from 'react-redux'
 
 class Incomes extends React.Component {
-    
+
     componentDidMount(){
+        debugger
         this.props.userIncomes()
+        console.log("maptostateincomes:",this.props.incomes)
     }
 
     render(){
         return(
             <div>
-                Incomes:
+                Incomes: 
+                {this.props.incomes.map((income,idx)=> <li key={idx} >{income.name}--{income.amount}</li>)}
             </div>
         )
     }
 }
+
 const mapStateToProps = (state) => {
     return {
         incomes: state.incomes
