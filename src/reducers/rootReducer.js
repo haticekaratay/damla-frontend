@@ -1,11 +1,20 @@
-const userReducer = (state = {
+const initialState = {
     currentUser: null,
-}, action) => {
+    expenses: [],
+    incomes: []
+}
+const userReducer = (state = initialState, action) => {
     switch(action.type){
         case "CREATE_USER":
             return {...state, currentUser: action.user}
         case "LOGIN_USER":
+            console.log("Dispatch user: ",action.user)
             return {...state,currentUser: action.user}
+        case "GET_USER_INCOMES":
+            return {...state, incomes: action.incomes}
+        case "ADD_INCOME":
+            console.log("add Income:", action.income)
+            return {...state, incomes: [...state.incomes,action.income]}
         default:
             return state
     }
