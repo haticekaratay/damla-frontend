@@ -1,9 +1,10 @@
 import React from "react";
 
-const Expense = () => {
+const Expense = (props) => {
+//    debugger
     return(
         <div>
-            This is the Expense Component
+            <li>Expense: {props.expense.name}------{props.expense.amount}</li>
         </div>
     )
 }
