@@ -59,7 +59,7 @@ export const autoLogin = () => {
         const token = localStorage.token
         console.log("token:", token)
         if(token){
-            fetch("http://localhost:3001/profile",{
+            fetch("http://localhost:3001/get_current_user",{
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",
@@ -67,13 +67,22 @@ export const autoLogin = () => {
                     'Authorization': `${ token }`
                 }
             })
-            .then(resp => resp.json())
+            .then(resp => {
+                // console.log("resp from autologin: ", resp.json())
+                return resp.json()
+            })
             .then(currentUserData => {
+                if(currentUserData.error){
+                    console.log("response from autologin error:")
+                }else{
                 console.log("in autoLogin:",currentUserData)
                 const {username, email} = currentUserData
-                
                 dispatch({type: "LOGIN_USER", user: {username: username, email:email}})
+                }
             }).catch(console.log)
+        }
+        else{
+            console.log("no token")
         }
     }
 }

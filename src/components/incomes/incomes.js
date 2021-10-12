@@ -5,7 +5,6 @@ import { connect } from 'react-redux'
 class Incomes extends React.Component {
 
     componentDidMount(){
-        debugger
         this.props.userIncomes()
         console.log("maptostateincomes:",this.props.incomes)
     }

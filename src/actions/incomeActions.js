@@ -43,7 +43,7 @@ export const addIncome = (income) => {
         })
         .then(incomeData => {
             if(incomeData.error){
-                console.log("response from autologin error:")
+                console.log("response from incomeActopns error:")
             }else{
             console.log("in incomeData:", incomeData)
             //dispatch({type: "ADD_INCOME", income: incomeData})
