@@ -15,6 +15,8 @@ const userReducer = (state = initialState, action) => {
         case "ADD_INCOME":
             console.log("add Income:", action.income)
             return {...state, incomes: [...state.incomes,action.income]}
+        case "GET_USER_EXPENSES":
+            return {...state, expenses: action.expenses}
         default:
             return state
     }
