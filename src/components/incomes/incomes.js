@@ -21,7 +21,7 @@ class Incomes extends React.Component {
 
 const mapStateToProps = (state) => {
     return {
-        incomes: state.incomes
+        incomes: state.incomes.incomes
     }
 }
-export default connect(mapStateToProps,{userIncomes})(Incomes)
+export default connect(mapStateToProps)(Incomes)

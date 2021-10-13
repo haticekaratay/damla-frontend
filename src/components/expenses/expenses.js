@@ -26,7 +26,7 @@ class Expenses extends React.Component{
 
 const mapStateToProps = (state) => {
     return {
-        expenses: state.expenses
+        expenses: state.expenses.expenses
     }
 }
 
