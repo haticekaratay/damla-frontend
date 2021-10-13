@@ -9,6 +9,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import rootReducer from './reducers/rootReducer'
 import { composeWithDevTools } from 'redux-devtools-extension';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const store = createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk)))
 
