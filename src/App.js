@@ -7,6 +7,7 @@ import {autoLogin} from "./actions/userActions"
 import SignUp from "./components/SignUp";
 import Home from "./components/Home"
 import Login from "./components/Login";
+import Navbar from "./components/NavBar";
 // import IncomeContainer from "./components/incomes/incomeContainer";
 import BudgetsContainer from ".//components/budgets/budgetsContainer"
 
@@ -15,6 +16,7 @@ class App extends React.Component{
     this.props.autoLogin()
     return (
       <div className="App">
+        <Navbar />
         <Route exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp} />
         <Route exact path="/login" component={Login} />
