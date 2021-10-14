@@ -8,10 +8,10 @@ class Expenses extends React.Component{
        this.props.fetchExpenses()
     }
 
-    expenses = () => {
-        // return this.props.expenses
-         return this.props.expenses.forEach(expense => <Expense expense={expense} key={expense.id}/>)
-    }
+    // expenses = () => {
+    //     // return this.props.expenses
+    //      return this.props.expenses.forEach(expense => <Expense expense={expense} key={expense.id}/>)
+    // }
     
     render() {
         return (

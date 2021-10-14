@@ -1,56 +1,32 @@
 import React from "react";
 import { Bar } from 'react-chartjs-2';
+import { ProgressBar } from "react-bootstrap";
 
 const Expense = (props) => {
 //    debugger
+    const now = parseInt(props.expense.amount)/parseInt(props.expense.budget)*100
+    console.log("parseInt(props.expense.amount):", parseInt(props.expense.amount))
+    console.log("parseInt(props.expense.budget):",parseInt(props.expense.budget))
+    console.log("now:",now)
     return(
-        <div style={{height:"500px", width:"400px"}}>
-            <li>Expense: {props.expense.name}------{props.expense.amount}---{props.expense.budget}</li>
-            <Bar  data={{
-                labels: [props.expense.name],
-                datasets: [
-                    {
-                     data: [props.expense.amount, props.expense.budget],
-                     backgroundColor: ['rgba(75,192,192,1)', 'rgba(245, 48, 150, 0.8)']
-                    }
-                ]
-            }} 
-            options={{
-                animation: {
-                    duration: 2000},
-                borderRadius: 10,
-                plugins: {
-                    legend: {
-                      position: 'top',
-                    }
-                },
-                barThickness: 20,
-                indexAxis: 'y',
-                responsive: true,
-                title: {text: `${props.expense.name}`},
-                scales: {
-                    xaxes: [
-                        {
-                            gridLines: {
-                                display: false
-                            }
-                        }
-                    ],
-                    yaxes: [
-                        {
-                            gridLines: {
-                                display: false
-                            }
-                        }
-                    ]
-                },
-    
-            }}
-                // width={100}
-                // height={50}
-            />
+        // <div style={{height:"500px", width:"400px"}}>
+        <div style={{ width:"400px"}}>
+            <li>{props.expense.name}------{props.expense.amount}---{props.expense.budget}</li>
+            <ProgressBar>
+                <ProgressBar  striped variant="bar-graph" now={props.expense.amount} label={`$${props.expense.amount}`}/>
+                <ProgressBar  striped variant="base" now={props.expense.budget-props.expense.amount} label={`$${props.expense.budget-props.expense.amount}`}/>
+            </ProgressBar>
+
+            {/* <ProgressBar  variant="bar-graph" max={props.expense.budget} now = {props.expense.amount}></ProgressBar> */}
+            
         </div>
     )
 }
 
 export default Expense;
+
+// const now = 60;
+
+// const progressInstance = <ProgressBar now={now} label={`${now}%`} />;
+
+// render(progressInstance);
