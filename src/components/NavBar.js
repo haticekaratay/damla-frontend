@@ -1,7 +1,15 @@
-import React from "react";
-import { Nav, Navbar} from "react-bootstrap"
+import React from "react"
+import { Nav, Navbar,NavItem} from "react-bootstrap"
+import { connect } from "react-redux"
+import {logout} from "../actions/userActions"
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+    const handleLogout = () => {
+        console.log("logout", props)
+        localStorage.removeItem("token")
+        props.logout()
+    }
     return(
         <div>
             <Navbar bg="dark" variant="dark">
@@ -17,11 +25,13 @@ const NavBar = () => {
                     <Nav className="me-auto">
                         <Nav.Link href="/">Home</Nav.Link>
                         <Nav.Link href="/mybudget">My Budget</Nav.Link>
-                        <Nav.Link href="/logout">Logout</Nav.Link>
+                        <Nav.Link onClick={()=>handleLogout()}>Logout</Nav.Link>
+                        <NavItem onClick={()=>handleLogout()}>Logout2</NavItem>
                     </Nav>
                 </Navbar>
         </div>
     )
 }
 
-export default NavBar;
+
+export default connect(null,{logout})(NavBar);
