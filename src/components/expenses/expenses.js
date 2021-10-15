@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux"
 import Expense from "./expense";
 import {fetchExpenses} from "../../actions/expenseActions"
+import ExpensesDonutGraph from "./expensesDonutGraph";
 
 class Expenses extends React.Component{
     componentDidMount(){
@@ -18,6 +19,7 @@ class Expenses extends React.Component{
             <div>
               {/* <ul>{console.log(this.expenses())}</ul> */}
               {this.props.expenses.map(expense => <Expense expense={expense} key={expense.id}/>)}
+                <ExpensesDonutGraph expenses={this.props.expenses}/>
             </div>
         )
     }
