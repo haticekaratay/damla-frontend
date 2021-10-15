@@ -87,3 +87,10 @@ export const autoLogin = () => {
     }
 }
 
+export const logout = () =>{
+    return (dispatch) => {
+        console.log("in logout dispatch")
+        dispatch({type:"LOGOUT_USER"})
+    }
+}
+
