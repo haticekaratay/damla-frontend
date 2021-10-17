@@ -3,12 +3,14 @@ import {connect} from "react-redux"
 import Expense from "./expense"
 import {fetchExpenses} from "../../actions/expenseActions"
 import ExpensesDonutGraph from "./expensesDonutGraph"
-import { Col, Row, Card } from "react-bootstrap"
+import { Col, Row, Card , Button} from "react-bootstrap"
+import ExpenseInput from "./expenseInput"
 
 class Expenses extends React.Component{
     componentDidMount(){
        this.props.fetchExpenses()
     }
+
     
     render() {
         return (
@@ -17,6 +19,7 @@ class Expenses extends React.Component{
                     <Col>
                         <Card>
                             {this.props.expenses.map(expense => <Expense expense={expense} key={expense.id}/>)}
+                            <ExpenseInput />
                         </Card>
                         
                     </Col>
