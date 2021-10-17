@@ -6,7 +6,7 @@ export const fetchExpenses = () => {
             headers: {
                 "Content-Type": "application/json",
                 "Accept" : "application/json",
-                'Authorization': `${ token }`
+                "Authorization": `${ token }`
             }
         })
         .then(resp => {
@@ -23,3 +23,27 @@ export const fetchExpenses = () => {
         }).catch(console.log)
     }
 }
+
+export const addExpense = (expenseData) => {
+    return (dispatch) => {
+        const token = localStorage.token
+        fetch("http://localhost:3001/expenses",{
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `${ token }`
+            },
+            body: JSON.stringify(expenseData)
+        })
+        .then(resp => resp.json())
+        .then(expenseData => {
+            if(expenseData.error){
+                console.log("response from addExpense error:")
+            }else{
+            console.log("in fetchExpenses:", expenseData)
+            dispatch({type: "ADD_EXPENSE", expense: expenseData})
+            }
+        }).catch(console.log)
+    }
+}
+
