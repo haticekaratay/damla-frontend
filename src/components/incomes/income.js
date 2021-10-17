@@ -1,9 +1,13 @@
-import React from "react";
+import React from "react"
+import { ListGroup } from "react-bootstrap"
+
 const Income = (props) => {
    return(
-       <div>
-           <li key={props.key}>{props.income.name}--{props.income.amount}</li>
-       </div>
+
+    <ListGroup variant="flush">
+        <ListGroup.Item>{props.income.name} {"    "}       ${props.income.amount}</ListGroup.Item>
+    </ListGroup>
+       
    )
 }
 export default Income;
