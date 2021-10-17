@@ -1,7 +1,8 @@
-import React from "react";
+import React from "react"
 import {userIncomes} from "../../actions/incomeActions"
-import { connect } from 'react-redux'
-import Income from "./income";
+import { connect } from "react-redux"
+import Income from "./income"
+
 class Incomes extends React.Component {
 
     componentDidMount(){
@@ -15,8 +16,9 @@ class Incomes extends React.Component {
     render(){
         return(
             <div>
-                Incomes: 
-                {this.props.incomes.map((income,idx)=> <Income income={income} key={income.id} />)}
+                <h4>Incomes:</h4> 
+                <hr></hr>
+                {this.props.incomes.map((income)=> <Income income={income}  />)}
             </div>
         )
     }

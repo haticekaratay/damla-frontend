@@ -1,6 +1,6 @@
-import React from "react";
-import { connect } from "react-redux";
-import {addIncome} from "../../actions/incomeActions";
+import React from "react"
+import { connect } from "react-redux"
+import {addIncome} from "../../actions/incomeActions"
 
 class IncomeInput extends React.Component {
     state = {
@@ -24,7 +24,8 @@ class IncomeInput extends React.Component {
     render(){
         return(
             <div>
-                <h1>Enter your incomes</h1>
+                <h4>Enter your incomes</h4>
+                <hr></hr>
                 <button>Add Income</button><br/><p></p>
                 <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} type="text" name="name" placeholder="income title"/><br />

@@ -1,26 +1,31 @@
-import React from "react";
+import React from "react"
 import {connect} from "react-redux"
-import Expense from "./expense";
+import Expense from "./expense"
 import {fetchExpenses} from "../../actions/expenseActions"
-import ExpensesDonutGraph from "./expensesDonutGraph";
+import ExpensesDonutGraph from "./expensesDonutGraph"
+import { Col, Row, Card } from "react-bootstrap"
 
 class Expenses extends React.Component{
     componentDidMount(){
        this.props.fetchExpenses()
     }
-
-    // expenses = () => {
-    //     // return this.props.expenses
-    //      return this.props.expenses.forEach(expense => <Expense expense={expense} key={expense.id}/>)
-    // }
     
     render() {
         return (
             <div>
-              {/* <ul>{console.log(this.expenses())}</ul> */}
-              {this.props.expenses.map(expense => <Expense expense={expense} key={expense.id}/>)}
-                <ExpensesDonutGraph expenses={this.props.expenses}/>
+                <Row>
+                    <Col>
+                        <Card>
+                            {this.props.expenses.map(expense => <Expense expense={expense} key={expense.id}/>)}
+                        </Card>
+                        
+                    </Col>
+                    <Col>
+                        <ExpensesDonutGraph expenses={this.props.expenses}/>
+                    </Col>
+                </Row>
             </div>
+
         )
     }
 
