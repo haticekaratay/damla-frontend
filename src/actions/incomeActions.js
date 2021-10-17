@@ -45,10 +45,33 @@ export const addIncome = (income) => {
             if(incomeData.error){
                 console.log("response from incomeActopns error:")
             }else{
-            console.log("in incomeData:", incomeData)
-            //dispatch({type: "ADD_INCOME", income: incomeData})
+            // console.log("in incomeData:", incomeData)
+            dispatch({type: "ADD_INCOME", income: incomeData})
             }
         }).catch(console.log)
     }
 }
+
+export const deleteIncome = (incomeId) =>{
+    return (dispatch) => {
+        const token = localStorage.token
+        console.log("deleteIncome fetch :")
+        fetch(`http://localhost:3001/incomes/${incomeId}`,{
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept" : "application/json",
+                'Authorization': `${ token }`
+            },
+        })
+        .then(resp => resp.json())
+        .then(incomeData => {
+            if(incomeData.error){
+                console.log("response from incomeActopns error:")
+            }else{
+                dispatch({type: "DELETE_INCOME", incomeId: incomeData})
+            }
+        }).catch(console.log)
+    }
+} 
 
