@@ -1,6 +1,5 @@
 import React from "react"
 import { ProgressBar, Button } from "react-bootstrap"
-import { GrFormEdit } from "react-icons/gr"
 import { GoPencil } from "react-icons/go"
 
 import { connect } from "react-redux"
@@ -8,8 +7,7 @@ import { connect } from "react-redux"
 const Expense = (props) => {
 
     const handleClick= () => {
-        // allow user to only update amount
-        
+       console.log("expense edit is clicked") 
     }
 
     const now = parseInt((props.expense.amount/props.expense.budget)*100)
@@ -24,8 +22,7 @@ const Expense = (props) => {
                 </ProgressBar>
             </div>
             <div>
-                <Button size="sm" onclick={()=>handleClick()}><GrFormEdit/></Button>
-                <Button size="sm "><GoPencil/></Button>
+                <Button style={{backgroundColor: "pink"}} size="sm" onClick={()=>handleClick()}><GoPencil/></Button>
             </div>
         </div>
     
