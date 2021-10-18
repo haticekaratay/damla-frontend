@@ -1,8 +1,8 @@
 import React from "react";
 import IncomeInput from "./incomeInput";
-import Incomes from "./incomes";
+import Incomes from "./incomes"
 import {Card, Container} from "react-bootstrap"
-import { Tab, Tabs } from "react-bootstrap";
+import { Tab, Tabs } from "react-bootstrap"
 
 const incomesContainer = (props) => {
     return(
