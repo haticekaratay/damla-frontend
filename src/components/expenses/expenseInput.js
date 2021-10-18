@@ -6,7 +6,8 @@ import { addExpense } from "../../actions/expenseActions"
 class ExpenseInput extends React.Component {
     state = {
         name: "",
-        budget: ""
+        budget: "",
+        show : false
     }
 
     handleSubmit = (e) => {
@@ -21,16 +22,25 @@ class ExpenseInput extends React.Component {
             [e.target.name]: e.target.value
         })
     }
+    toggle = () => {
+        this.setState({show :!this.state.show})
+    }
+
+    renderForm = () => {
+        return(
+            <form onSubmit={this.handleSubmit}>
+                    <input onChange={this.handleChange} type="text" name="name" placeholder="expense"/><br />
+                    <input onChange={this.handleChange} type="number" name="budget" step="0.01" placeholder="budget"/><br />
+                    <input type="submit" onClick={() => {this.toggle()}} value="Save Expense Category" />
+             </form>
+        )
+    }
 
     render(){
         return(
             <div>
-               <Button>ADD</Button>
-                <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} type="text" name="name" placeholder="expense"/><br />
-                    <input onChange={this.handleChange} type="number" name="budget" step="0.01" placeholder="budget"/><br />
-                    <input type="submit" value="Save Expense Category" />
-                </form>
+               <Button onClick={() => {this.toggle()}}>ADD</Button>
+                {this.state.show ? this.renderForm(): null}
             </div>
         )
     }
