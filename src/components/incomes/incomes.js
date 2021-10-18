@@ -9,9 +9,6 @@ class Incomes extends React.Component {
         this.props.userIncomes()
         console.log("maptostateincomes:",this.props.incomes)
     }
-    // incomes = () => {
-    //     return this.props.incomes.forEach(income => <Income income={income} key={income.id} />)
-    // }
 
     render(){
         return(

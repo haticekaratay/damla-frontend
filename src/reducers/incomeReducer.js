@@ -8,6 +8,11 @@ const incomeReducer = (state = initialState, action) => {
         case "ADD_INCOME":
             console.log("add Income:", action.income)
             return {...state, incomes: [...state.incomes,action.income]}
+        case "DELETE_INCOME":
+            console.log("deleted item id:", action.incomeId)
+            console.log("after deletion state:", {...state, incomes: state.incomes.filter(income => income.id !== action.incomeId)})
+            debugger
+            return {...state, incomes: state.incomes.filter(income => income.id !== action.incomeId)}
         default:
             return state
     }

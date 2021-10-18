@@ -1,11 +1,15 @@
 import React from "react"
 import { ListGroup, Button } from "react-bootstrap"
-import {MdDelete} from "react-icons/md"
+import { MdDelete } from "react-icons/md"
+import { connect } from "react-redux"
+import { deleteIncome} from "../../actions/incomeActions"
 
 const Income = (props) => {
 
     const handleClick = () => {
         console.log("delete income")
+        console.log("handleclick delete id:", props.income.id)
+        props.deleteIncome(props.income.id)
     }
 
     return(
@@ -17,4 +21,4 @@ const Income = (props) => {
     </> 
    )
 }
-export default Income;
+export default connect(null, {deleteIncome})(Income);
