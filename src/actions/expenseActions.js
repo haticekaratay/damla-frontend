@@ -10,7 +10,6 @@ export const fetchExpenses = () => {
             }
         })
         .then(resp => {
-            // console.log("resp from autologin: ", resp.json())
             return resp.json()
         })
         .then(expensesData => {
@@ -46,4 +45,32 @@ export const addExpense = (expenseData) => {
         }).catch(console.log)
     }
 }
+
+
+export const deleteExpense = (expenseId) =>{
+    return (dispatch) => {
+        const token = localStorage.token
+        console.log("deleteIncome fetch :")
+        fetch(`http://localhost:3001/expenses/${expenseId}`,{
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept" : "application/json",
+                'Authorization': `${ token }`
+            },
+        })
+        .then(resp => resp.json())
+        .then(expenseData => {
+            if(expenseData.error){
+                console.log("response from expenseDelete, error:")
+            }else{
+                dispatch({type: "DELETE_EXPENSE", expenseId: expenseData})
+            }
+        }).catch(console.log)
+    }
+} 
+
+
+
+
 
