@@ -2,6 +2,7 @@ const initialState = {
     expenses: []
 }
 const expenseReducer = (state = initialState, action) => {
+    let index
     switch(action.type){
         case "GET_USER_EXPENSES":
             return {...state, expenses: action.expenses}
@@ -10,8 +11,8 @@ const expenseReducer = (state = initialState, action) => {
         case "DELETE_EXPENSE":
             return {...state, expenses: state.expenses.filter(expense => expense.id !== action.expenseId)}
         case "EDIT_EXPENSE":
-            console.log("in edit expense reducer")
-            return {...state, expenses: [...[...state.expenses.filter(expense => expense.id !== action.expense.id)],action.expense] }
+            index = state.expenses.findIndex(expense => expense.id === action.expense.id)
+            return {...state, expenses: [...state.expenses.slice(0,index), action.expense, ...state.expenses.slice(index)]}
         default:
             return state
     }
