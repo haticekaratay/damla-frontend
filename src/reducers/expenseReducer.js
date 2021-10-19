@@ -12,7 +12,7 @@ const expenseReducer = (state = initialState, action) => {
             return {...state, expenses: state.expenses.filter(expense => expense.id !== action.expenseId)}
         case "EDIT_EXPENSE":
             index = state.expenses.findIndex(expense => expense.id === action.expense.id)
-            return {...state, expenses: [...state.expenses.slice(0,index), action.expense, ...state.expenses.slice(index)]}
+            return {...state, expenses: [...state.expenses.slice(0,index), action.expense, ...state.expenses.slice(index+1)]}
         default:
             return state
     }
