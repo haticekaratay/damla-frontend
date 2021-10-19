@@ -46,6 +46,31 @@ export const addExpense = (expenseData) => {
     }
 }
 
+export const editExpense = (expense, expenseId) => {
+    return (dispatch) => {
+        const token = localStorage.token
+        console.log("in edit expense action token", token)
+        console.log("expense to edit:",expense)
+        fetch(`http://localhost:3001/expenses/${expenseId}`,{
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept" :"application/json",
+                "Authorization": `${ token }`
+            },
+            body: JSON.stringify(expense)
+        })
+        .then(resp => resp.json())
+        .then(expenseData => {
+            if(expenseData.error){
+                console.log("error from path expense")
+            }else{
+                console.log("in edit dispatch", expenseData)
+                dispatch({type: "EDIT_EXPENSE", expense: expenseData})
+            }
+        }).catch(console.log)
+    }
+}
 
 export const deleteExpense = (expenseId) =>{
     return (dispatch) => {
