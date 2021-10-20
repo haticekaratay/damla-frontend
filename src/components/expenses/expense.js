@@ -55,12 +55,12 @@ class Expense extends React.Component {
             <div className="expence-container">
                 {/* {props.expense.name}------{props.expense.amount}---{props.expense.budget} */}
                 {this.state.show ? this.renderForm() : this.props.expense.name}
-                <Button style={{backgroundColor: "pink"}} size="sm" onClick={()=>this.toggle()}><GoPencil/></Button>
-                <Button style={{backgroundColor: "pink"}} size="sm" onClick={()=>this.handleDelete()}><MdDelete /></Button>
+                <Button variant="secondary" style={{backgroundColor: "#abb8fc" ,border: "none", outline: "none"}} size="sm" onClick={()=>this.toggle()}><GoPencil/></Button>
+                <Button variant="secondary" style={{backgroundColor: "#abb8fc" ,border: "none", outline: "none"}} size="sm" onClick={()=>this.handleDelete()}><MdDelete /></Button>
                 <div>
                     <ProgressBar style={{height:"20%"}}>
-                        <ProgressBar  striped variant="bar-graph" now={this.now}  label={`$${this.props.expense.amount}`}/>
-                        <ProgressBar  striped variant="base" now={(this.props.expense.budget-this.props.expense.amount)} max={this.props.expense.budget}label={`$${this.props.expense.budget-this.props.expense.amount}`}/>
+                        <ProgressBar  variant="bar-graph" now={this.now}  label={`$${this.props.expense.amount}`}/>
+                        <ProgressBar variant="base" now={(this.props.expense.budget-this.props.expense.amount)} max={this.props.expense.budget}label={`$${this.props.expense.budget-this.props.expense.amount}`}/>
                     </ProgressBar>
                 </div>
             </div>

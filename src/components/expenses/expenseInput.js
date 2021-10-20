@@ -12,9 +12,8 @@ class ExpenseInput extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault();
-        
-        console.log(this.state)
         this.props.addExpense({name: this.state.name, budget: parseInt(this.state.budget)})
+        this.toggle()
     }
 
     handleChange = (e) => {
@@ -31,7 +30,7 @@ class ExpenseInput extends React.Component {
             <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} type="text" name="name" placeholder="expense"/><br />
                     <input onChange={this.handleChange} type="number" name="budget" step="0.01" placeholder="budget"/><br />
-                    <input type="submit" onClick={() => {this.toggle()}} value="Save Expense Category" />
+                    <input type="submit" value="Save Expense Category" />
              </form>
         )
     }
@@ -39,7 +38,7 @@ class ExpenseInput extends React.Component {
     render(){
         return(
             <div>
-               <Button onClick={() => {this.toggle()}}>ADD</Button>
+               <Button variant="secondary" style={{backgroundColor: "#5f74e5" ,border: "none",outline: "none"}} onClick={() => {this.toggle()}}>ADD</Button>
                 {this.state.show ? this.renderForm(): null}
             </div>
         )
