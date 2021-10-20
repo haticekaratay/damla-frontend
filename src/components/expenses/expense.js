@@ -5,6 +5,7 @@ import { MdDelete } from "react-icons/md"
 import { connect } from "react-redux"
 import { editExpense} from "../../actions/expenseActions"
 import { deleteExpense} from "../../actions/expenseActions"
+import  ExpenseProgressBar from "./expenseProgressBar"
 
 class Expense extends React.Component {
     state= {
@@ -57,11 +58,14 @@ class Expense extends React.Component {
                 {this.state.show ? this.renderForm() : this.props.expense.name}
                 <Button variant="secondary" style={{backgroundColor: "#abb8fc" ,border: "none", outline: "none"}} size="sm" onClick={()=>this.toggle()}><GoPencil/></Button>
                 <Button variant="secondary" style={{backgroundColor: "#abb8fc" ,border: "none", outline: "none"}} size="sm" onClick={()=>this.handleDelete()}><MdDelete /></Button>
-                <div>
+                {/* <div>
                     <ProgressBar style={{height:"20%"}}>
                         <ProgressBar  variant="bar-graph" now={this.now}  label={`$${this.props.expense.amount}`}/>
                         <ProgressBar variant="base" now={(this.props.expense.budget-this.props.expense.amount)} max={this.props.expense.budget}label={`$${this.props.expense.budget-this.props.expense.amount}`}/>
                     </ProgressBar>
+                </div> */}
+                <div>
+                    <ExpenseProgressBar now= {this.now} budget={this.props.expense.budget} amount={this.props.expense.amount}/>
                 </div>
             </div>
         )
