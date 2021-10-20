@@ -10,7 +10,6 @@ export const userIncomes = () => {
             }
         })
         .then(resp => {
-            // console.log("resp from autologin: ", resp.json())
             return resp.json()
         })
         .then(incomeData => {
@@ -38,15 +37,13 @@ export const addIncome = (income) => {
             body: JSON.stringify(income)
         })
         .then(resp => {
-            // console.log("resp from addIncome: ", resp.json())
              return resp.json()
         })
         .then(incomeData => {
             if(incomeData.error){
                 console.log("response from incomeActopns error:")
             }else{
-            // console.log("in incomeData:", incomeData)
-            dispatch({type: "ADD_INCOME", income: incomeData})
+            dispatch({type: "ADD_INCOME", income: incomeData, })
             }
         }).catch(console.log)
     }
