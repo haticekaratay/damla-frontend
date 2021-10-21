@@ -1,24 +1,24 @@
 import React from "react"
-import { ListGroup, Button } from "react-bootstrap"
+import { Button,Col,Card } from "react-bootstrap"
 import { MdDelete } from "react-icons/md"
 import { connect } from "react-redux"
 import { deleteIncome} from "../../actions/incomeActions"
 
 const Income = (props) => {
 
-    const handleClick = () => {
-        console.log("delete income")
-        console.log("handleclick delete id:", props.income.id)
+    const handleClick= () => {
         props.deleteIncome(props.income.id)
     }
 
     return(
-    <>
-        <ListGroup variant="flush">
-            <ListGroup.Item>{props.income.name} {"    "}       ${props.income.amount}</ListGroup.Item>
-        </ListGroup>
-        <Button size="sm" style={{backgroundColor: "pink"}} onClick={()=>handleClick()}><MdDelete /></Button>
-    </> 
+        <Col>
+            <Card>
+                <div className="income-card">
+                    <strong>{props.income.name}:</strong> <h4>${props.income.amount}</h4>
+                    <Button variant="secondary" style={{backgroundColor: "#009688" ,border: "none", outline: "none"}} size="sm"  onClick={()=>handleClick()}><MdDelete /></Button>
+                </div>
+            </Card>
+        </Col>
    )
 }
 export default connect(null, {deleteIncome})(Income);

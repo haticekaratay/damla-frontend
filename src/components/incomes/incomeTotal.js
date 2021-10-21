@@ -6,20 +6,19 @@ const IncomeTotal = (props) => {
     const total = () => {
         let total = 0;
         props.incomes.forEach((incomeObj) => {
-        total += incomeObj.amount 
-    })
+            total += incomeObj.amount 
+        })
         return total
     }
     
     return(
-        <div>
-            Total income $ {total()}
+        <div >
+          <h3><strong>Total income: &nbsp;&nbsp; $ {total()}</strong> </h3>
         </div>
-   )
+    )
 }
 
 const mapStateToProps = (state) => {
-    console.log("state: ", state)
     return {
         incomes: state.incomes.incomes
     }

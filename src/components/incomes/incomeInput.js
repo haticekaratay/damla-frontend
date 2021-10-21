@@ -24,15 +24,13 @@ class IncomeInput extends React.Component {
     render(){
         return(
             <div>
-                <h4>Enter your incomes</h4>
-                <hr></hr>
-
                 <form onSubmit={this.handleSubmit}>
-                    <input onChange={this.handleChange} type="text" name="name" placeholder="income title"/><br />
-                    <input onChange={this.handleChange} type="number" name="amount" step="0.01" placeholder="amount"/><br />
-                    <input type="submit" value="Enter Income" />
+                    <input onChange={this.handleChange} type="text" name="name" placeholder="income title"/> 
+                    <input onChange={this.handleChange} type="number" name="amount" step="0.01" placeholder="amount"/>
+                    <input type="submit" value="Enter Income" style={{backgroundColor: "#abb8fc" ,border: "none", outline: "none"}} size="sm"/>
                 </form>
             </div>
+            
         )
     }
 }
