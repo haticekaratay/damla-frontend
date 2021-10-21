@@ -1,6 +1,6 @@
 import React from "react"
 import { Doughnut } from "react-chartjs-2"
-import {Card} from "react-bootstrap"
+import { Card } from "react-bootstrap"
 
 const ExpensesDonutGraph = (props) =>{
 
@@ -31,7 +31,7 @@ const ExpensesDonutGraph = (props) =>{
     }
       return (
         <Card className="expence-container">
-          <Doughnut data={dataDoughnut} options={{ responsive: true }}  />
+          <Doughnut data={dataDoughnut} options={{ responsive: true }} />
         </Card>
       )
 }

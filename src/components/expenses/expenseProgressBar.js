@@ -1,34 +1,27 @@
 import React from "react"
-import { ProgressBar} from "react-bootstrap"
-import ExpenseAmountEdit from "./expenseAmountEdit"
+import { ProgressBar } from "react-bootstrap"
 import { GrAddCircle } from "react-icons/gr"
 import { GrSubtractCircle } from "react-icons/gr"
-import { Row, Col, Form} from "react-bootstrap"
+import { Row, Col } from "react-bootstrap"
 import { connect } from "react-redux"
 import { editExpense } from "../../actions/expenseActions"
 
 class ExpenseProgressBar extends React.Component {
     state= {
-        budget: "",
+        amount: "",
         show: false
     }
 
-    componentWillReceiveProps(nextProps) {
-        this.setState({ budget: nextProps.budget });  
-    }
+    // componentWillReceiveProps(nextProps) {
+    //     this.setState({ amount: nextProps.budget });  
+    // }
 
     handleSubmit = (e) => {
         e.preventDefault()
-        console.log("id",this.props.expense.id)
         
-        console.log("submit e.target value",this.state.budget)
-        this.props.editExpense({amount: parseInt(this.state.budget)},this.props.expense.id)
+        this.props.editExpense({amount: parseInt(this.state.amount)},this.props.expense.id)
         this.toggle()
-        console.log("this.props.budget: ", this.props.budget)
-        console.log("this.props.amount: ", this.props.amount)
-        console.log("now:",(this.props.budget-this.props.amount))
-        console.log("max:", this.props.budget)
-        console.log("remaining:", this.props.budget-this.props.amount)
+
 
     }
 
@@ -36,11 +29,10 @@ class ExpenseProgressBar extends React.Component {
         this.setState({
             [e.target.name]: e.target.value
         })
-        console.log("handle change budget  " ,this.state.budget)
     }
 
     toggle = (e) => {
-        console.log("toggle budget:", this.state.budget)
+        console.log("toggle budget:", this.state.amount)
         this.setState({show: !this.state.show})
     }
 
@@ -52,9 +44,8 @@ class ExpenseProgressBar extends React.Component {
                 <Col >
                     <GrSubtractCircle />
                     <GrAddCircle />
-                    {/* <input type = "number" size="8" maxlength="4" step="0.01" ></input> */}
                     <form onSubmit={this.handleSubmit}>
-                        <input onChange={this.handleChange} type="number" name="budget" step="0.01" /><br />
+                        <input onChange={this.handleChange} type="number" name="amount" step="0.01" /><br />
                         <input type="submit" value="Save" />
                     </form>
                 </Col>
@@ -71,6 +62,8 @@ class ExpenseProgressBar extends React.Component {
                 <ProgressBar  variant="bar-graph" now={now}  label={`$${this.props.amount}`}/>
                 <ProgressBar variant="base" now={(this.props.budget-this.props.amount)} max={this.props.budget}label={`$${this.props.budget-this.props.amount}`}/>
             </ProgressBar>
+            <GrAddCircle />
+            <GrSubtractCircle />
             {this.state.show ? this.amountEditForm() : null}
         </div>
     )
