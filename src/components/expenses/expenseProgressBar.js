@@ -5,6 +5,7 @@ import { GrSubtractCircle } from "react-icons/gr"
 import { Row, Col } from "react-bootstrap"
 import { connect } from "react-redux"
 import { editExpense } from "../../actions/expenseActions"
+import ExpenseIncrementDecrement from "./expenseAmountEdit"
 
 class ExpenseProgressBar extends React.Component {
     state= {
@@ -42,10 +43,8 @@ class ExpenseProgressBar extends React.Component {
                 <Col>
                 </Col>
                 <Col >
-                    <GrSubtractCircle />
-                    <GrAddCircle />
                     <form onSubmit={this.handleSubmit}>
-                        <input onChange={this.handleChange} type="number" name="amount" step="0.01" /><br />
+                        <input onChange={this.handleChange} type="number" name="amount" step="0.01" defaultValue={this.state.amount}/><br />
                         <input type="submit" value="Save" />
                     </form>
                 </Col>
@@ -62,8 +61,8 @@ class ExpenseProgressBar extends React.Component {
                 <ProgressBar  variant="bar-graph" now={now}  label={`$${this.props.amount}`}/>
                 <ProgressBar variant="base" now={(this.props.budget-this.props.amount)} max={this.props.budget}label={`$${this.props.budget-this.props.amount}`}/>
             </ProgressBar>
-            <GrAddCircle />
-            <GrSubtractCircle />
+            {/* <ExpenseIncrementDecrement expense = {this.props.expense}/> */}
+            <br></br>
             {this.state.show ? this.amountEditForm() : null}
         </div>
     )

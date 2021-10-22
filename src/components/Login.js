@@ -19,7 +19,8 @@ class Login extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.loginUser(this.state,this.props.history)
+        console.log("login submit data", this.state, this.props.routeInfo.history)
+        this.props.loginUser(this.state,this.props.routeInfo.history)
     }
 
     render(){        
@@ -31,7 +32,7 @@ class Login extends React.Component{
                             <Image style={{width: '100%', height: '100%'}} src={damla} />
                         </Col>
                         <Col>
-                            <Form onSubmit={this.handleSubmit} className="form-signin">
+                            <Form onSubmit={this.handleSubmit} className="form-signin" autocomplete="off">
                                 <Form.Label>DAMLA</Form.Label>
                                 <Form.Group >
                                     <Form.Label>Username</Form.Label>

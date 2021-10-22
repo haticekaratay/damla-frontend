@@ -24,7 +24,7 @@ class IncomeInput extends React.Component {
     render(){
         return(
             <div>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} autocomplete="off">
                     <input onChange={this.handleChange} type="text" name="name" placeholder="income title"/> 
                     <input onChange={this.handleChange} type="number" name="amount" step="0.01" placeholder="amount"/>
                     <input type="submit" value="Enter Income" style={{backgroundColor: "#abb8fc" ,border: "none", outline: "none"}} size="sm"/>

@@ -19,7 +19,7 @@ class SignUp extends React.Component{
 
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.createUser(this.state, this.props.history)
+        this.props.createUser(this.state, this.props.routeInfo.history)
     }
 
     render(){
@@ -29,7 +29,7 @@ class SignUp extends React.Component{
                 <Card className="signup-card">
                     <Row>
                         <Col>
-                            <Form onSubmit={this.handleSubmit}>
+                            <Form onSubmit={this.handleSubmit} autocomplete="off">
                                 <h3>SIGN UP</h3>
                                 <hr></hr>
                                 <Form.Group >
@@ -52,8 +52,8 @@ class SignUp extends React.Component{
                                 </Button>
                         </Form>
                         <br></br>
-                        If you already signed up.
-                            <Link to="/login" style={{ color: "black" }}>
+                        If you already signed up. &nbsp;&nbsp;
+                            <Link to="/" style={{ color: "black" }}>
                                 LOG IN
                             </Link> 
                         </Col>
