@@ -32,7 +32,7 @@ class Login extends React.Component{
                             <Image style={{width: '100%', height: '100%'}} src={damla} />
                         </Col>
                         <Col>
-                            <Form onSubmit={this.handleSubmit} className="form-signin" autocomplete="off">
+                            <Form onSubmit={this.handleSubmit} className="form-signin" >
                                 <Form.Label>DAMLA</Form.Label>
                                 <Form.Group >
                                     <Form.Label>Username</Form.Label>
@@ -44,7 +44,7 @@ class Login extends React.Component{
                                     <Form.Control  onChange={this.handleChange} type="password" name="password" placeholder="Password" />
                                 </Form.Group>
                                 <br></br>
-                                <Button   Button variant="secondary" type="submit">
+                                <Button  variant="secondary" type="submit">
                                     SIGN IN
                                 </Button>
                         </Form>

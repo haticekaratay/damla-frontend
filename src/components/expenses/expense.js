@@ -35,9 +35,9 @@ class Expense extends React.Component {
     renderForm = () => {
         return(
             <form onSubmit={(e)=> this.handleSubmit(e)}>
-                    <input onChange={this.handleChange} type="text" name="name" placeholder={this.props.expense.name}/>
-                    <input type="submit" value="Update" />
-             </form>
+                <input onChange={this.handleChange} type="text" name="name" placeholder={this.props.expense.name}/>
+                <input type="submit" value="Update" />
+            </form>
         )
     }
 

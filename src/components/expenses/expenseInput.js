@@ -27,7 +27,7 @@ class ExpenseInput extends React.Component {
 
     renderForm = () => {
         return(
-            <form onSubmit={this.handleSubmit} autocomplete="off">
+            <form onSubmit={this.handleSubmit}>
                     <input onChange={this.handleChange} type="text" name="name" placeholder="expense"/><br />
                     <input onChange={this.handleChange} type="number" name="budget" step="0.01" placeholder="budget"/><br />
                     <input type="submit" value="Save Expense Category" />

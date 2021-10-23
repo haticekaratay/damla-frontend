@@ -3,26 +3,40 @@ import React from "react";
 import {Route} from "react-router-dom"
 import { connect } from 'react-redux'
 import {autoLogin} from "./actions/userActions"
-
 import SignUp from "./components/SignUp";
-import Home from "./components/Home"
 import Login from "./components/Login";
 import Navbar from "./components/NavBar";
 // import IncomeContainer from "./components/incomes/incomeContainer";
-import BudgetsContainer from ".//components/budgets/budgetsContainer"
+import BudgetsContainer from "./components/budgets/budgetsContainer"
 
 class App extends React.Component{
+ 
+  // componentWillReceiveProps(nextProps) {
+  //       this.setState({ currentUser: nextProps.currentUser });  
+  // }
+  
+
   render(){
-    this.props.autoLogin()
-    return (
-      <div className="App">
-        <Navbar />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/mybudget" component={BudgetsContainer} />
-      </div>
-    );
+    //  this.props.autoLogin()
+    console.log("current user:",this.props.currentUser)
+    console.log("is logged in?:",this.props.loggedIn)
+      return (
+        <div className="app-custom font-custom">
+          <Navbar />
+          <Route exact path="/mybudget" component={(routeInfo)=> <BudgetsContainer routeInfo={routeInfo} />} />
+          <Route exact path="/" component={(routeInfo)=> <Login routeInfo={routeInfo} />} />
+          <Route exact path="/signup" component={(routeInfo)=> <SignUp routeInfo={routeInfo} />} />
+        </div>
+      );
   }
+
 }
-export default connect(null,{autoLogin})(App);
+
+const mapStateToProps = (state) =>{
+    return {
+      currentUser : state.users.currentUser,
+      loggedIn : state.users.loggedIn
+    }
+
+}
+export default connect(mapStateToProps,{autoLogin})(App);

@@ -29,7 +29,7 @@ class SignUp extends React.Component{
                 <Card className="signup-card">
                     <Row>
                         <Col>
-                            <Form onSubmit={this.handleSubmit} autocomplete="off">
+                            <Form onSubmit={this.handleSubmit}>
                                 <h3>SIGN UP</h3>
                                 <hr></hr>
                                 <Form.Group >
@@ -47,7 +47,7 @@ class SignUp extends React.Component{
                                     <Form.Control  onChange={this.handleChange} type="password" name="password" placeholder="Password" />
                                 </Form.Group>
                                 <br></br>
-                                <Button   Button variant="secondary" type="submit">
+                                <Button  variant="secondary" type="submit">
                                     SIGN UP
                                 </Button>
                         </Form>
