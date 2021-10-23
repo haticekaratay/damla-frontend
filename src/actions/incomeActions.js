@@ -1,3 +1,6 @@
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.css';
+
 export const userIncomes = () => {
     return (dispatch) => {
         const token = localStorage.token
@@ -13,7 +16,7 @@ export const userIncomes = () => {
             return resp.json()
         })
         .then(incomeData => {
-            if(incomeData.error){
+            if(incomeData.message){
                 console.log("response from autologin error:")
             }else{
             console.log("in incomeData:", incomeData)
@@ -40,8 +43,10 @@ export const addIncome = (income) => {
              return resp.json()
         })
         .then(incomeData => {
-            if(incomeData.error){
+            if(incomeData.message){
                 console.log("response from incomeActopns error:")
+                alertify.set('notifier','position', 'top-right')
+                alertify.error(incomeData.message)
             }else{
             dispatch({type: "ADD_INCOME", income: incomeData, })
             }

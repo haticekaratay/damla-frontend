@@ -1,3 +1,6 @@
+import alertify from 'alertifyjs';
+import 'alertifyjs/build/css/alertify.css';
+
 export const fetchExpenses = () => {
     return (dispatch) => {
         const token = localStorage.token
@@ -13,7 +16,7 @@ export const fetchExpenses = () => {
             return resp.json()
         })
         .then(expensesData => {
-            if(expensesData.error){
+            if(expensesData.message){
                 console.log("response from fetchExpenses error:")
             }else{
             console.log("in fetchExpenses:", expensesData)
@@ -37,7 +40,9 @@ export const addExpense = (expenseData) => {
         .then(resp => resp.json())
         .then(expenseData => {
             if(expenseData.error){
-                console.log("response from addExpense error:")
+                console.log("response from addExpense error:", expenseData.message)
+                alertify.set('notifier','position', 'top-right');
+                alertify.error(expenseData.error)
             }else{
             console.log("in fetchExpenses:", expenseData)
             dispatch({type: "ADD_EXPENSE", expense: expenseData})
@@ -62,8 +67,11 @@ export const editExpense = (expense, expenseId) => {
         })
         .then(resp => resp.json())
         .then(expenseData => {
-            if(expenseData.error){
-                console.log("error from path expense")
+            if(expenseData.message){
+                console.log("error from path expense", expenseData.message)
+                alertify.set('notifier','position', 'top-right');
+                alertify.error(expenseData.message)
+
             }else{
                 console.log("in edit dispatch", expenseData)
                 dispatch({type: "EDIT_EXPENSE", expense: expenseData})
@@ -86,8 +94,10 @@ export const deleteExpense = (expenseId) =>{
         })
         .then(resp => resp.json())
         .then(expenseData => {
-            if(expenseData.error){
-                console.log("response from expenseDelete, error:")
+            if(expenseData.message){
+                console.log("response from expenseDelete, error:", expenseData.message)
+                alertify.set('notifier','position', 'top-right');
+                alertify.error(expenseData.message)
             }else{
                 dispatch({type: "DELETE_EXPENSE", expenseId: expenseData})
             }
