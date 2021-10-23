@@ -1,72 +1,42 @@
-# Description
-This is a React App.
-# Getting Started with Create React App
+# DAMLA Budget
+ Welcome to DAMLA Budget a React Application, with a [Rails API](https://github.com/haticekaratay/damla-backend). 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ ![Alt Text](public/login.gif?raw=true)
 
-## Available Scripts
+ ![Alt Text](public/income.gif?raw=true)
 
-In the project directory, you can run:
+## Usage
+### Starting the app
+ - Navigate to [Rails Backend](https://github.com/haticekaratay/damla-backend) and install it. Then start your server from your backend:
+   ```
+    $rails server
+   ```
+ - Once your server is up and running, move to this folder, damla-frontend, and install required packages via:
+    ```
+    $npm install
+    ```
+ - Then run your app
+    ```
+    $npm start
+    ```
+  
+### How to use the app
+ - The app welcome user with login page. Signup with a username, email and password.
+ - User can add and delete income(s), and the app will display each income and the total.
+ - User can add a new category of expenses by giving expense category a name and setting a budget.
+ - Click on the pencil icon to update expense name.
+ - Click on the progress bar to edit expense amount.
+ - Click on the delete icon to delete expense .
 
-### `yarn start`
+### Contributing
+This project is intendent to be safe, welcoming space of collaboration, and contributors are expected to adhere to the Contributor Covenant [code of conduct](https://github.com/haticekaratay/damla-frontend/blob/master/CODE_OF_CONDUCT.md)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### License 
+This project has been licensed under the [MIT](https://github.com/haticekaratay/damla-frontend/blob/master/LICENSE) open source license.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Acknowledgement
+Thanks [gifcap.dev](https://github.com/joaomoreno/gifcap) for the use of Gif maker.
+Thanks [Canva](https://www.canva.com/) for the images.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Author(s)
+* [Hatice Karatay](https://github.com/haticekaratay)
