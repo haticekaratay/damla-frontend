@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Navbar from "./components/NavBar";
 // import IncomeContainer from "./components/incomes/incomeContainer";
 import BudgetsContainer from "./components/budgets/budgetsContainer"
+import Footer from './components/Footer';
 
 class App extends React.Component{
  
@@ -21,12 +22,15 @@ class App extends React.Component{
     console.log("current user:",this.props.currentUser)
     console.log("is logged in?:",this.props.loggedIn)
       return (
-        <div className="app-custom font-custom">
+        <>
+        <div className="app-custom font-custom content-container">
           <Navbar />
           <Route exact path="/mybudget" component={(routeInfo)=> <BudgetsContainer routeInfo={routeInfo} />} />
           <Route exact path="/" component={(routeInfo)=> <Login routeInfo={routeInfo} />} />
           <Route exact path="/signup" component={(routeInfo)=> <SignUp routeInfo={routeInfo} />} />
         </div>
+        <Footer />
+        </>
       );
   }
 

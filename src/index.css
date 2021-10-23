@@ -116,5 +116,16 @@ body{
   width: fit-content;
   height: 100px;
 
+}
 
+.content-container {
+  min-height: calc(100vh - 34px);
+}
+
+.footer-pin {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  /* left: 0; */
+  bottom: 0;
 }
