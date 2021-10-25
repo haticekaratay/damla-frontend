@@ -3,7 +3,11 @@
 
  ![Alt Text](public/login.gif?raw=true)
 
+
  ![Alt Text](public/income.gif?raw=true)
+
+
+ ![Alt Text](public/editExpense.gif?raw=true)
 
 ## Usage
 ### Starting the app
