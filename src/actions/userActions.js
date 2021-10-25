@@ -13,8 +13,7 @@ export const createUser = (userDataFromLocalState, history) =>{
         .then(data =>{
             console.log(JSON.stringify(data,null,2))
             if(data.message){
-                //alert(data.error)
-                const error = data.error.join("\r\n")
+             
                 alertify.set('notifier','position', 'top-right')
                 alertify.error(data.message)
             }else{
@@ -22,7 +21,7 @@ export const createUser = (userDataFromLocalState, history) =>{
         
                 localStorage.setItem("token",jwt)
                 dispatch({ type: 'CREATE_USER', user: {username: username, email:email}})
-                history.push("/mybudget")
+                history.push("/budgets")
             }
         }).catch(console.log)
     }
@@ -47,7 +46,7 @@ export const loginUser = (userDataFromLocalState, history) =>{
                 
                 localStorage.setItem("token",jwt)
                 dispatch({ type: "LOGIN_USER", user: {username: username, email:email}})
-                history.push("/mybudget")
+                history.push("/budgets")
             }
         }).catch(console.log)
     }

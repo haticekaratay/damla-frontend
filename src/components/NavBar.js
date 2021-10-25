@@ -20,8 +20,8 @@ const NavBar = (props) => {
         return (
             <Navbar variant="dark" className="navbar-custom">
             <Container>
-                <Navbar.Brand href="/mybudget">Home</Navbar.Brand>
-                <Nav.Link href="/mybudget" style={{ color: "white" }}>My Budget</Nav.Link>
+                <Navbar.Brand href="/budgets">Home</Navbar.Brand>
+                <Nav.Link href="/budgets" style={{ color: "white" }}>My Budget</Nav.Link>
                 <Navbar.Toggle />
                 <Navbar.Collapse className="justify-content-end">
                     <Navbar.Text>
