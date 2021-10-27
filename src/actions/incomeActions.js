@@ -4,7 +4,7 @@ import 'alertifyjs/build/css/alertify.css';
 export const userIncomes = () => {
     return (dispatch) => {
         const token = localStorage.token
-        fetch("http://localhost:3001/incomes",{
+        fetch("https://damla-budget.herokuapp.com/incomes",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ export const addIncome = (income) => {
     return (dispatch) => {
         const token = localStorage.token
         console.log("addIncome fetch token:")
-        fetch("http://localhost:3001/incomes",{
+        fetch("https://damla-budget.herokuapp.com/incomes",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export const deleteIncome = (incomeId) =>{
     return (dispatch) => {
         const token = localStorage.token
         console.log("deleteIncome fetch :")
-        fetch(`http://localhost:3001/incomes/${incomeId}`,{
+        fetch(`https://damla-budget.herokuapp.com/incomes/${incomeId}`,{
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

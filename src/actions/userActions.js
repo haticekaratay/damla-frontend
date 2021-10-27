@@ -3,7 +3,7 @@ import 'alertifyjs/build/css/alertify.css';
 
 export const createUser = (userDataFromLocalState, history) =>{
     return dispatch => {
-        fetch("http://localhost:3001/users",{
+        fetch("https://damla-budget.herokuapp.com/users",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -29,7 +29,7 @@ export const createUser = (userDataFromLocalState, history) =>{
 
 export const loginUser = (userDataFromLocalState, history) =>{
     return dispatch => {
-        fetch("http://localhost:3001/login",{
+        fetch("https://damla-budget.herokuapp.com/login",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -56,7 +56,7 @@ export const autoLogin = () => {
         const token = localStorage.token
         console.log("token:", token)
         if(token){
-            fetch("http://localhost:3001/get_current_user",{
+            fetch("https://damla-budget.herokuapp.com/get_current_user",{
                 method: "GET",
                 headers: {
                     "Content-Type": "application/json",

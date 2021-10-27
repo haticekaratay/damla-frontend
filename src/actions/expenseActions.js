@@ -4,7 +4,7 @@ import 'alertifyjs/build/css/alertify.css';
 export const fetchExpenses = () => {
     return (dispatch) => {
         const token = localStorage.token
-        fetch("http://localhost:3001/expenses",{
+        fetch("https://damla-budget.herokuapp.com/expenses",{
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -29,7 +29,7 @@ export const fetchExpenses = () => {
 export const addExpense = (expenseData) => {
     return (dispatch) => {
         const token = localStorage.token
-        fetch("http://localhost:3001/expenses",{
+        fetch("https://damla-budget.herokuapp.com/expenses",{
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -56,7 +56,7 @@ export const editExpense = (expense, expenseId) => {
         const token = localStorage.token
         console.log("in edit expense action token", token)
         console.log("expense to edit:",expense)
-        fetch(`http://localhost:3001/expenses/${expenseId}`,{
+        fetch(`https://damla-budget.herokuapp.com/expenses/${expenseId}`,{
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export const deleteExpense = (expenseId) =>{
     return (dispatch) => {
         const token = localStorage.token
         console.log("deleteIncome fetch :")
-        fetch(`http://localhost:3001/expenses/${expenseId}`,{
+        fetch(`https://damla-budget.herokuapp.com/expenses/${expenseId}`,{
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
